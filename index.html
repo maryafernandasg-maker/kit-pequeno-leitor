@@ -1,0 +1,312 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Kit Pequeno Leitor</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Mais de 150 atividades de alfabetização para imprimir. Crianças de 4 a 6 anos, 15 minutos por dia, sem tela.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&family=Mali:wght@600;700&display=swap">
+<style>
+/* Layout: uma coluna estreita de leitura, cada seção apoiada numa "pauta de caderno de caligrafia" (linha de base + linha tracejada do meio), como as folhas do kit. */
+:root{
+  --papel:#FFF8EC; --papel-2:#FFFFFF; --tinta:#2F2A26; --tinta-2:#5E5750;
+  --sol:#F6C445; --sol-esc:#E3A72F; --ceu:#5DB7DE; --coral:#F27C6B; --coral-esc:#C9513F; --folha:#3F7D42;
+  --pauta:#E4DBCD; --sombra:rgba(47,42,38,.10);
+  --display:"Mali","Comic Sans MS","Chalkboard SE",cursive;
+  --texto:"Andika","Trebuchet MS",system-ui,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --papel:#1F1B18; --papel-2:#2A2521; --tinta:#F5EEE4; --tinta-2:#CFC5B8;
+  --sol:#F6C445; --sol-esc:#E3A72F; --ceu:#6CC1E6; --coral:#F48A7A; --coral-esc:#F48A7A; --folha:#8BD18E;
+  --pauta:#3D362F; --sombra:rgba(0,0,0,.35); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --papel:#1F1B18; --papel-2:#2A2521; --tinta:#F5EEE4; --tinta-2:#CFC5B8;
+  --sol:#F6C445; --sol-esc:#E3A72F; --ceu:#6CC1E6; --coral:#F48A7A; --coral-esc:#F48A7A; --folha:#8BD18E;
+  --pauta:#3D362F; --sombra:rgba(0,0,0,.35); color-scheme:dark}
+
+*{box-sizing:border-box}
+body{background:var(--papel);color:var(--tinta);font-family:var(--texto);font-size:1.125rem;line-height:1.55;
+  padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:720px;margin:0 auto}
+section{padding-block:3.5rem}
+h1,h2,h3{font-family:var(--display);line-height:1.12;text-wrap:balance;margin:0}
+h1{font-size:clamp(2.1rem,6.4vw,3.3rem)}
+h2{font-size:clamp(1.8rem,5vw,2.5rem)}
+h3{font-size:1.35rem}
+p{margin:0}
+.eyebrow{font-weight:700;font-size:.95rem;letter-spacing:.06em;text-transform:uppercase;color:var(--coral-esc)}
+/* pauta de caderno sob os títulos de seção */
+.pauta{position:relative;padding-bottom:.9rem;margin-bottom:1.6rem}
+.pauta::before,.pauta::after{content:"";position:absolute;left:0;right:0}
+.pauta::after{bottom:0;border-bottom:2px solid var(--pauta)}
+.pauta::before{bottom:.45rem;border-bottom:2px dashed var(--pauta)}
+.marca{background:linear-gradient(transparent 52%,var(--sol) 52%,var(--sol) 92%,transparent 92%);padding:0 .15em}
+:root[data-theme="dark"] .marca{color:var(--tinta)}
+
+/* topo */
+.topo{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding-block:1rem}
+.logo{font-family:var(--display);font-weight:700;font-size:1.2rem;display:flex;align-items:center;gap:.5rem}
+.logo img{width:40px;height:auto}
+
+/* hero */
+.hero{padding-block:1.5rem 3rem;display:grid;gap:1.4rem}
+.hero .sub{font-size:1.2rem;color:var(--tinta-2);max-width:36ch}
+.video{position:relative;margin-inline:auto;width:min(100%,380px);aspect-ratio:9/16;max-width:100%;border-radius:28px;overflow:hidden;
+  background:var(--sol);box-shadow:0 12px 0 var(--sombra)}
+.video video{width:100%;height:100%;display:block;object-fit:cover}
+.selo-mudo{text-align:center;font-size:.95rem;color:var(--tinta-2)}
+
+/* botão */
+.cta{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.15rem;text-decoration:none;text-align:center;
+  background:var(--folha);color:#FFFFFF;border-radius:999px;padding:1.05rem 1.6rem;min-height:56px;
+  font-family:var(--display);font-weight:700;font-size:1.35rem;box-shadow:0 6px 0 rgba(0,0,0,.18);transition:transform .12s ease}
+.cta small{font-family:var(--texto);font-weight:400;font-size:.9rem;opacity:.95}
+.cta:hover{transform:translateY(-2px)}
+.cta:active{transform:translateY(2px);box-shadow:0 2px 0 rgba(0,0,0,.18)}
+.cta:focus-visible,summary:focus-visible{outline:3px solid var(--ceu);outline-offset:3px}
+:root[data-theme="dark"] .cta{color:#14200F}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]) .cta{color:#14200F}}
+.cta-wrap{display:grid;gap:.6rem;justify-items:center}
+.garantia-mini{font-size:.95rem;color:var(--tinta-2)}
+
+/* dores */
+.dores{list-style:none;padding:0;margin:0;display:grid;gap:.9rem}
+.dores li{background:var(--papel-2);border-radius:18px;padding:1rem 1.2rem;font-size:1.15rem}
+
+/* caminho */
+.caminho{list-style:none;padding:0;margin:0;display:grid;gap:.8rem}
+.caminho li{display:flex;align-items:center;gap:1rem;border-radius:20px;padding:.9rem 1.2rem;color:#2F2A26}
+.caminho b{font-family:var(--display);font-size:1.5rem;min-width:2ch}
+.caminho span{font-size:1.15rem}
+.caminho li:nth-child(1){background:#F6C445}.caminho li:nth-child(2){background:#5DB7DE;margin-left:6%}
+.caminho li:nth-child(3){background:#F27C6B;margin-left:12%}.caminho li:nth-child(4){background:#7CC47F;margin-left:18%}
+
+/* módulos */
+.modulos{display:grid;gap:1.4rem}
+.modulo{display:grid;grid-template-columns:150px minmax(0,1fr);gap:1.2rem;align-items:center}
+.modulo img{width:150px;height:auto;border-radius:12px;box-shadow:0 6px 0 var(--sombra);background:#FFFFFF}
+.modulo .n{font-family:var(--display);color:var(--coral-esc);font-size:1rem;font-weight:700}
+.modulo p{color:var(--tinta-2)}
+@media (max-width:440px){.modulo{grid-template-columns:96px minmax(0,1fr)}.modulo img{width:96px}}
+.total{margin-top:1.6rem;font-weight:700;font-size:1.15rem}
+
+/* bônus */
+.bonus{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.bonus figure{margin:0;background:var(--papel-2);border-radius:20px;padding:.8rem;display:grid;gap:.6rem;align-content:start}
+.bonus img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top;border-radius:12px;max-width:100%}
+.bonus img.deitado{aspect-ratio:4/3}
+.bonus figcaption{font-weight:700;line-height:1.3}
+.bonus figcaption span{display:block;font-weight:400;font-size:.95rem;color:var(--tinta-2)}
+
+/* como funciona */
+.passos{list-style:none;counter-reset:p;padding:0;margin:0;display:grid;gap:1.1rem}
+.passos li{counter-increment:p;display:grid;grid-template-columns:52px minmax(0,1fr);gap:1rem;align-items:start}
+.passos li::before{content:counter(p);font-family:var(--display);font-weight:700;font-size:1.5rem;width:52px;height:52px;border-radius:50%;
+  background:var(--ceu);color:#2F2A26;display:grid;place-items:center}
+.passos b{display:block;font-size:1.2rem}
+.passos p{color:var(--tinta-2)}
+
+/* oferta */
+.oferta{background:var(--papel-2);border:3px dashed var(--sol-esc);border-radius:28px;padding:2rem 1.4rem;display:grid;gap:1.3rem;text-align:center}
+.itens{list-style:none;padding:0;margin:0;display:grid;gap:.55rem;text-align:left;max-width:30rem;margin-inline:auto}
+.itens li{display:flex;gap:.6rem;align-items:flex-start}
+.itens svg{flex:0 0 22px;margin-top:.2rem}
+.preco{font-family:var(--display);font-weight:700;font-size:clamp(3.6rem,14vw,5rem);line-height:1}
+.preco-nota{color:var(--tinta-2)}
+
+/* garantia */
+.garantia{display:grid;grid-template-columns:96px minmax(0,1fr);gap:1.2rem;align-items:center}
+.garantia svg{width:96px;height:96px}
+
+/* faq */
+.faq{display:grid;gap:.7rem}
+details{background:var(--papel-2);border-radius:16px;padding:1rem 1.2rem}
+summary{cursor:pointer;font-weight:700;font-size:1.1rem;list-style-position:outside;margin-left:1rem}
+details p{margin-top:.6rem;color:var(--tinta-2)}
+
+.final{text-align:center;display:grid;gap:1.4rem;justify-items:center}
+.final img{width:170px;height:auto}
+footer{padding-block:2.5rem 3rem;border-top:2px solid var(--pauta);font-size:.92rem;color:var(--tinta-2);display:grid;gap:.4rem;text-align:center}
+
+/* barra fixa no celular */
+.barra{position:fixed;left:0;right:0;bottom:0;z-index:5;background:var(--papel);border-top:2px solid var(--pauta);
+  padding:.6rem max(16px,env(safe-area-inset-right,0px)) calc(.6rem + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));
+  display:flex;align-items:center;justify-content:space-between;gap:.8rem;transform:translateY(110%);transition:transform .25s ease}
+.barra.on{transform:none}
+.barra p{font-weight:700;line-height:1.2}
+.barra p span{display:block;font-weight:400;font-size:.9rem;color:var(--tinta-2)}
+.barra .cta{font-size:1.05rem;padding:.7rem 1.1rem;min-height:48px;flex:0 0 auto}
+@media (min-width:900px){.barra{display:none}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="wrap">
+  <header class="topo">
+    <div class="logo"><img src="img/lili-parada.png" alt="" width="40" height="42">Kit Pequeno Leitor</div>
+  </header>
+
+  <section class="hero" aria-labelledby="titulo">
+    <p class="eyebrow">Para mães de crianças de 4 a 6 anos</p>
+    <h1 id="titulo">Seu filho aprendendo as letras e as primeiras sílabas <span class="marca">brincando</span>, em 15 minutos por dia, sem tela.</h1>
+    <p class="sub">Mais de 150 atividades prontas para imprimir, na ordem certa: da primeira letra até as primeiras palavras.</p>
+    <div class="video">
+      <video id="vsl" src="vsl.mp4" poster="img/vsl-capa.jpg" controls playsinline preload="metadata"></video>
+    </div>
+    <p class="selo-mudo">Aperte o play e ative o som. O vídeo também tem legendas.</p>
+    <div class="cta-wrap">
+      <a class="cta js-comprar" href="#oferta">Quero o kit por R$ 27<small>Acesso imediato no seu e-mail</small></a>
+      <p class="garantia-mini">Garantia de 7 dias ou seu dinheiro de volta</p>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-dores">
+    <h2 id="t-dores" class="pauta">Você se identifica?</h2>
+    <ul class="dores">
+      <li>"Meu filho só quer saber de celular."</li>
+      <li>"Não sei por onde começar a ensinar as letras."</li>
+      <li>"Procuro atividade no Pinterest e perco a noite montando."</li>
+      <li>"Tenho medo de ele chegar no 1º ano sem reconhecer as letras."</li>
+    </ul>
+    <p style="margin-top:1.4rem;font-size:1.15rem">Você não precisa ser professora. Precisa de um caminho pronto e de 15 minutos por dia com ele.</p>
+  </section>
+
+  <section aria-labelledby="t-caminho">
+    <h2 id="t-caminho" class="pauta">A criança aprende a ler seguindo uma ordem</h2>
+    <ol class="caminho">
+      <li><b>1</b><span>A letra: reconhecer a forma</span></li>
+      <li><b>2</b><span>O som: "b-b-b", não só "bê"</span></li>
+      <li><b>3</b><span>A sílaba: BA, BE, BI, BO, BU</span></li>
+      <li><b>4</b><span>A palavra: BO + LA = BOLA</span></li>
+    </ol>
+    <p style="margin-top:1.4rem">Pular etapas é o que mais trava. Por isso o kit segue exatamente essa sequência.</p>
+  </section>
+
+  <section aria-labelledby="t-kit">
+    <h2 id="t-kit" class="pauta">O que vem no kit</h2>
+    <div class="modulos">
+      <div class="modulo"><img src="img/pag-letra-a.jpg" alt="Página da letra A para pintar e cobrir" width="150" height="212" loading="lazy">
+        <div><p class="n">Módulo 1 · 27 páginas</p><h3>Conhecendo as letras</h3><p>Uma página para cada letra do alfabeto: pintar, cobrir o pontilhado e achar figuras.</p></div></div>
+      <div class="modulo"><img src="img/pag-tracado.jpg" alt="Página de traçado em zigue-zague" width="150" height="212" loading="lazy">
+        <div><p class="n">Módulo 2 · 21 páginas</p><h3>Traçado e coordenação</h3><p>Linhas, curvas, espirais e letras para preparar a mão para escrever.</p></div></div>
+      <div class="modulo"><img src="img/pag-vogal-a.jpg" alt="Página: o que começa com A" width="150" height="212" loading="lazy">
+        <div><p class="n">Módulo 3 · 25 páginas</p><h3>Vogais e sons</h3><p>A, E, I, O, U: achar, completar, traçar e os encontros de vogais.</p></div></div>
+      <div class="modulo"><img src="img/pag-familia-b.jpg" alt="Página da família silábica do B" width="150" height="212" loading="lazy">
+        <div><p class="n">Módulo 4 · 45 páginas</p><h3>Sílabas simples</h3><p>14 famílias silábicas, com leitura, lacunas para completar e jogos de ligar.</p></div></div>
+      <div class="modulo"><img src="img/pag-monte-palavra.jpg" alt="Página: monte a palavra com sílabas" width="150" height="212" loading="lazy">
+        <div><p class="n">Módulo 5 · 34 páginas</p><h3>Primeiras palavras</h3><p>Recortar e montar palavras, ler frases curtas, caça-palavras e escrever sozinho.</p></div></div>
+    </div>
+    <p class="total">152 páginas em PDF, tamanho A4. Desenhos só de contorno: a criança pinta e você economiza tinta.</p>
+  </section>
+
+  <section aria-labelledby="t-bonus">
+    <h2 id="t-bonus" class="pauta">E você ainda leva 4 bônus</h2>
+    <p style="margin:-.6rem 0 1.4rem;color:var(--tinta-2)">2 bônus liberados na hora e 2 liberados 7 dias após a compra, para dar fôlego à segunda semana de atividades.</p>
+    <div class="bonus">
+      <figure><img src="img/capa-rotina.jpg" alt="Capa da rotina de 30 dias" loading="lazy"><figcaption>Rotina de 30 dias<span>O que fazer em cada dia, em 15 minutos · liberado na hora</span></figcaption></figure>
+      <figure><img src="img/cartaz-a.jpg" alt="Cartaz colorido da letra A" loading="lazy"><figcaption>Cartazes do alfabeto<span>26 cartazes coloridos + painel para a parede · liberado após 7 dias</span></figcaption></figure>
+      <figure><img class="deitado" src="img/certificado.jpg" alt="Certificado de Pequeno Leitor" loading="lazy"><figcaption>Certificado + quadro de estrelas<span>Para comemorar cada conquista · liberado após 7 dias</span></figcaption></figure>
+      <figure><img src="img/capa-natal.jpg" alt="Capa do Kit de Natal" loading="lazy"><figcaption>Kit de Natal<span>20 atividades · liberado na hora, para compras até 25/12</span></figcaption></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-como">
+    <h2 id="t-como" class="pauta">Como funciona</h2>
+    <ol class="passos">
+      <li><div><b>Você compra pelo botão</b><p>Pix ou cartão, em ambiente seguro.</p></div></li>
+      <li><div><b>Recebe o acesso no e-mail</b><p>Os PDFs ficam disponíveis na hora, para baixar no celular ou no computador.</p></div></li>
+      <li><div><b>Imprime em casa e começa</b><p>Quantas vezes quiser. Funciona em impressora preto e branco.</p></div></li>
+    </ol>
+  </section>
+
+  <section id="oferta" aria-labelledby="t-oferta">
+    <div class="oferta">
+      <h2 id="t-oferta">Kit Pequeno Leitor completo</h2>
+      <ul class="itens">
+        <li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>5 módulos, 152 páginas para imprimir</li>
+        <li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Rotina de 30 dias</li>
+        <li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Cartazes do alfabeto (liberados após 7 dias)</li>
+        <li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Certificado e quadro de estrelas (liberados após 7 dias)</li>
+        <li><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 12.5l5 5L20 6.5"/></svg>Kit de Natal (até 25/12)</li>
+      </ul>
+      <div>
+        <p class="preco">R$ 27</p>
+        <p class="preco-nota">pagamento único · menos que um livro de atividades na papelaria</p>
+      </div>
+      <div class="cta-wrap">
+        <a class="cta js-comprar" href="#oferta">Quero começar hoje<small>Acesso imediato · Pix ou cartão</small></a>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-garantia">
+    <div class="garantia">
+      <svg viewBox="0 0 24 24" role="img" aria-label="Selo de garantia"><path d="M12 2l7.5 3v6.2c0 5-3.6 9.1-7.5 10.8C8.1 20.3 4.5 16.2 4.5 11.2V5L12 2z" fill="var(--folha)"/><path d="M8.3 12.2l2.6 2.6 4.9-5.3" fill="none" stroke="var(--papel)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <div><h2 id="t-garantia" style="font-size:1.7rem">Garantia de 7 dias</h2>
+        <p style="margin-top:.5rem">Imprima, use com seu filho e, se não gostar, é só pedir o reembolso dentro de 7 dias. Devolvemos 100% do valor, sem perguntas.</p></div>
+    </div>
+  </section>
+
+  <section aria-labelledby="t-faq">
+    <h2 id="t-faq" class="pauta">Perguntas frequentes</h2>
+    <div class="faq">
+      <details><summary>Preciso de impressora colorida?</summary><p>Não. As atividades têm desenhos só de contorno, feitos para a criança pintar. Funcionam em qualquer impressora, até preto e branco.</p></details>
+      <details><summary>Para qual idade é o kit?</summary><p>Para crianças de 4 a 6 anos que estão começando a conhecer as letras. Crianças maiores que ainda têm dificuldade também aproveitam.</p></details>
+      <details><summary>Posso imprimir mais de uma vez?</summary><p>Sim. Você imprime quantas vezes quiser para uso na sua casa ou na sua turma.</p></details>
+      <details><summary>É um produto físico?</summary><p>Não. É um material digital em PDF. Você recebe o acesso no e-mail e imprime em casa ou numa gráfica rápida.</p></details>
+      <details><summary>Em quanto tempo meu filho vai ler?</summary><p>Cada criança tem o seu ritmo, então não prometemos prazo. O kit dá a sequência certa e uma rotina de 15 minutos por dia para ela avançar sem pressão.</p></details>
+      <details><summary>Quando recebo os bônus?</summary><p>A Rotina de 30 dias e o Kit de Natal são liberados na hora, junto com o kit. Os Cartazes do alfabeto e o Certificado com quadro de estrelas aparecem na sua área de membros 7 dias após a compra, quando a criança já estiver na segunda semana de atividades.</p></details>
+      <details><summary>Serve para professoras?</summary><p>Sim. O material pode ser usado em sala de aula com a sua turma. Só não é permitido revender ou distribuir os arquivos.</p></details>
+    </div>
+  </section>
+
+  <section class="final" aria-labelledby="t-final">
+    <img src="img/lili-acenando.png" alt="Lili, a corujinha leitora, acenando" width="170" height="160" loading="lazy">
+    <h2 id="t-final">Comece hoje, com 15 minutos por dia</h2>
+    <div class="cta-wrap">
+      <a class="cta js-comprar" href="#oferta">Quero o kit por R$ 27<small>Garantia de 7 dias</small></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Kit Pequeno Leitor · @pequenoleitor_atividades</p>
+    <p>Produto digital. Uso pessoal ou em sala de aula. Proibida a revenda ou distribuição.</p>
+  </footer>
+</div>
+
+<div class="barra" id="barra" aria-hidden="true">
+  <p>Kit Pequeno Leitor<span>152 páginas + 4 bônus · R$ 27</span></p>
+  <a class="cta js-comprar" href="#oferta" tabindex="-1">Comprar</a>
+</div>
+
+<script>
+/* ======================================================
+   COLE AQUI O LINK DO CHECKOUT DA KIWIFY (entre as aspas).
+   Enquanto estiver vazio, os botões levam até a oferta.
+   ====================================================== */
+var CHECKOUT_URL = "https://pay.kiwify.com.br/jERJE5A";
+
+(function(){
+  var links = document.querySelectorAll(".js-comprar");
+  if (CHECKOUT_URL) {
+    links.forEach(function(a){ a.href = CHECKOUT_URL; a.rel = "noopener"; });
+  }
+  var barra = document.getElementById("barra");
+  var hero = document.querySelector(".hero .cta");
+  if (barra && hero && "IntersectionObserver" in window) {
+    new IntersectionObserver(function(es){
+      var fora = !es[0].isIntersecting && es[0].boundingClientRect.top < 0;
+      barra.classList.toggle("on", fora);
+      barra.setAttribute("aria-hidden", fora ? "false" : "true");
+      barra.querySelector("a").tabIndex = fora ? 0 : -1;
+    }).observe(hero);
+  }
+})();
+</script>
+
+</body>
+</html>
